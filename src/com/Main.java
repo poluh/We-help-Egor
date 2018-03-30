@@ -17,6 +17,6 @@ public class Main {
         graph.connect("C", "G");
         graph.connect("D", "H");
 
-        System.out.println(graph.isConnect());
+        System.out.println(graph.searchNotNeighbors("A"));
     }
 }
