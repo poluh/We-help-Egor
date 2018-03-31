@@ -10,7 +10,7 @@ public class Friend {
     private List<String> friends = new ArrayList<>();
     private String friendName;
 
-    Friend(String string) {
+    public Friend(String string) {
         if (!foundStringsPattern.matcher(string).matches()) throw new IllegalArgumentException("Invalid");
         String[] stringParts = string.split("\\s+");
         this.friendName = stringParts[0];
@@ -25,13 +25,5 @@ public class Friend {
 
     public String getFriendName() {
         return friendName;
-    }
-
-    public void setFriends(List<String> friends) {
-        this.friends = friends;
-    }
-
-    public void setFriendName(String friendName) {
-        this.friendName = friendName;
     }
 }
