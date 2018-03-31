@@ -19,12 +19,16 @@ public class EgorFriends {
             Friend friend = new Friend(inputString);
             friendList.add(friend);
         }
+        getFriendOfFriend();
+    }
+
+    public void getFriendOfFriend() {
         Graph graph = new Graph();
         addToGraph(graph);
         System.out.printf("Egor has %d friends of friends", graph.searchNotNeighbors(EGOR_ID).size());
     }
 
-    public void addToGraph(Graph graph) {
+    private void addToGraph(Graph graph) {
         graph.addVertex(EGOR_ID);
         for (Friend friend : friendList) {
             String mainFriend = friend.getFriendName();
