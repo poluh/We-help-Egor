@@ -15,6 +15,7 @@ public class Friend {
         String[] stringParts = string.split("\\s+");
         this.friendName = stringParts[0];
         List<String> friends = Arrays.asList(stringParts).subList(2, stringParts.length);
+        if (friends.size() != Integer.parseInt(stringParts[1])) throw new IllegalArgumentException();
         this.friends.addAll(friends);
     }
 
