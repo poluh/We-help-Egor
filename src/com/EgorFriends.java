@@ -9,7 +9,7 @@ public class EgorFriends {
     private List<Friend> friendList;
     private final static String EGOR_ID = "0000";
 
-    public EgorFriends (List<Friend> friendList) {
+    public EgorFriends(List<Friend> friendList) {
         this.friendList = friendList;
     }
 
@@ -21,14 +21,15 @@ public class EgorFriends {
 
     private void addToGraph(Graph graph) {
         graph.addVertex(EGOR_ID);
-        for (Friend friend : friendList) {
-            String mainFriend = friend.getFriendName();
+        friendList.forEach((Friend friend) -> {
+                    String mainFriend = friend.getFriendName();
 
-            graph.addVertex(mainFriend);
-            graph.connect(EGOR_ID, mainFriend);
+                    graph.addVertex(mainFriend);
+                    graph.connect(EGOR_ID, mainFriend);
 
-            graph.addAllVertexes(friend.getFriends());
-            friend.getFriends().forEach((String friendName) -> graph.connect(mainFriend, friendName));
-        }
+                    graph.addAllVertexes(friend.getFriends());
+                    friend.getFriends().forEach((String friendName) -> graph.connect(mainFriend, friendName));
+                }
+        );
     }
 }

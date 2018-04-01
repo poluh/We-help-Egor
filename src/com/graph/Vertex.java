@@ -14,10 +14,6 @@ public class Vertex {
         this.vertexName = vertexName;
     }
 
-    public String getVertexName() {
-        return vertexName;
-    }
-
     public void addNeighbor(Vertex vertex) {
         this.neighbors.add(vertex);
     }
