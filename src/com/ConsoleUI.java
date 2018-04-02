@@ -13,8 +13,8 @@ public class ConsoleUI {
         int friendCount;
         try {
             friendCount = Integer.valueOf(inputScanner.nextLine());
-        } catch (Exception e) {
-            System.err.print("Invalid friends count!");
+        } catch (NumberFormatException e) {
+            System.err.printf("Invalid friends count! Error = %s", e.getMessage());
             return;
         }
         if (friendCount < 1 || friendCount > 100) {
@@ -27,12 +27,12 @@ public class ConsoleUI {
         for (int i = 1; i <= friendCount; i++) {
             try {
                 friendList.add(new Friend(inputScanner.nextLine()));
-            } catch (Exception e) {
-                System.err.print("Invalid friend!");
+            } catch (IllegalArgumentException e) {
+                System.err.printf("Invalid friend! Error = %s", e.getMessage());
                 return;
             }
         }
 
-        System.out.print(new EgorFriends(friendList).getFriendOfFriend());
+        System.out.printf("Egor friend of fried %d", new EgorFriends(friendList).getFriendOfFriend());
     }
 }

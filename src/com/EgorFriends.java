@@ -28,7 +28,9 @@ public class EgorFriends {
                     graph.connect(EGOR_ID, mainFriend);
 
                     graph.addAllVertexes(friend.getFriends());
-                    friend.getFriends().forEach((String friendName) -> graph.connect(mainFriend, friendName));
+                    friend.getFriends().forEach((String friendName) -> {
+                        graph.connect(mainFriend, friendName);
+                    });
                 }
         );
     }

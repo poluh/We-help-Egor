@@ -11,11 +11,15 @@ public class Friend {
     private String friendName;
 
     public Friend(String string) {
-        if (!foundStringsPattern.matcher(string).matches()) throw new IllegalArgumentException("Invalid");
+        if (!foundStringsPattern.matcher(string).matches()) {
+            throw new IllegalArgumentException("Invalid friend string");
+        }
         String[] stringParts = string.split("\\s+");
         this.friendName = stringParts[0];
         List<String> friends = Arrays.asList(stringParts).subList(2, stringParts.length);
-        if (friends.size() != Integer.parseInt(stringParts[1])) throw new IllegalArgumentException();
+        if (friends.size() != Integer.parseInt(stringParts[1])) {
+            throw new IllegalArgumentException("Invalid friend quantity");
+        }
         this.friends.addAll(friends);
     }
 
